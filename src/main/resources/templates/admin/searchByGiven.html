@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="admin/fragments_admin.html :: headerfiles">
+    <title>Manage Users</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+</head>
+<body>
+<header th:insert="admin/fragments_admin.html :: nav"></header>
+<!-- Page content goes here -->
+<div class="container-fluid text-center">
+    <h2>Search by user</h2>
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Role</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <th:block th:each="user : ${foundUsers}">
+            <tr>
+                <td>[[${user.id}]]</td>
+                <td>[[${user.username}]]</td>
+                <td>[[${user.role}]]</td>
+            </tr>
+
+        </th:block>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="owner/fragments_owner.html :: headerfiles"></head>
+<body>
+<header th:insert="owner/fragments_owner.html :: nav"></header>
+<!-- Page content goes here -->
+<div class="text-center">
+    <h2>View profile</h2>
+</div>
+<div class="card">
+    <div class="card-block" style="padding: 24px;">
+
+
+        <div class="row">
+            <div class="col-md-4 offset-3" style="margin-top: 0.5%;">
+                <label>Username:</label>
+            </div>
+            <div class="col-md-4" style="margin-left: -26%;">
+                <input type="text" class="form-control"  th:placeholder=${#authentication.getName()} disabled = "disabled"/> <br/>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 offset-3" style="margin-top: 0.5%;">
+                <label>Password:</label>
+            </div>
+            <div class="col-md-4" style="margin-left: -26%;">
+                <input type="text" class="form-control"  th:placeholder=${#authentication.getPrincipal().getPassword()} disabled = "disabled"/> <br/>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 offset-3" style="margin-top: 0.5%;">
+                <label>Balanace:</label>
+            </div>
+            <div class="col-md-4" style="margin-left: -26%;">
+                <input type="text" class="form-control" th:placeholder="${balance}" disabled = "disabled"/> <br/>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 offset-3" style="margin-top: 0.5%;">
+                <label>Pets:</label>
+            </div>
+            <div class="col-md-4" style="margin-left: -26%;">
+                <input type="text" class="form-control"  th:placeholder="${pets.size()}" disabled = "disabled"/> <br/>
+            </div>
+        </div>
+
+        <div class="form-actions" style="margin-top: 12px; margin-left: 84%;">
+            <a class="btn btn-success" href="#" th:href="@{~/owner/editProfile}">Edit profile</a>
+        </div>
+
+    </div><!-- /.row -->
+</div>
+
+</body>
+</html>

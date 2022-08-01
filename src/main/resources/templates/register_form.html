@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments.html :: headerfiles">
+    <title>Create new Account</title>
+</head>
+<body>
+<div class="container">
+    <div style="width:600px;margin-left: auto;margin-right: auto;margin-top:24px;padding: 24px;">
+        <div class="card">
+            <div class="card-header">
+                <i class="fa fa-user"></i> Create new Account
+            </div>
+            <div class="card-block" style="padding: 24px;">
+                <form action="#" th:action="@{/register}" th:object="${userDTO}" method="post">
+                    <label>Username: </label>
+                    <input type="text" class="form-control" th:field="*{username}" placeholder="Username"/> <br/>
+
+                    <label>Password: </label>
+                    <input type="password" class="form-control" th:field="*{password}" placeholder="Password"/> <br/>
+
+                    <label>Confirm Password: </label>
+                    <input type="password" class="form-control" th:field="*{confirmPassword}" placeholder="Password"/> <br/>
+
+                    <label>Role: </label> <br />
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" class="col-md-2" th:field="*{role}" value="OWNER"/>Client
+                        <input type="radio" class="offset-md-11 col-md-2" th:field="*{role}" value="SITTER"/>Sitter
+                    </div>
+                    <br/>
+
+                    <!-- Create Account Button -->
+                    <div class="form-actions" style="margin-top: 12px;">
+                        <button type="submit" class="btn btn-success">Create New Account!</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

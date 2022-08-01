@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="admin/fragments_admin.html :: headerfiles"></head>
+<body>
+<header th:insert="admin/fragments_admin.html :: nav"></header>
+
+<!-- Page header -search bar trial-->
+
+<div class="text-center">
+    <h2>Search by</h2>
+</div>
+<div class="card">
+    <div class="card-block" style="padding: 24px;">
+        <form class="offset-2" action="#" th:action="@{/admin/searchByGiven}" th:object="${user}" method="post">
+
+
+            <div class="row">
+                <div class="col-md-4 offset-3" style="margin-top: 0.5%;">
+                    <label>Role:</label>
+                </div>
+                <div class="col-md-4" style="margin-left: -26%;">
+                    <input type="text" class="form-control" th:field="*{role}" placeholder="Search by Role"/> <br/>
+                </div>
+            </div>
+
+            <div class="form-actions" style="margin-top: 12px; margin-left: 44%;">
+                <button type="submit" class="btn btn-success">Search User!</button>
+            </div>
+        </form>
+    </div><!-- /.row -->
+</div>
+
+<!-- Page content goes here -->
+
+<!--<div class="container-fluid text-center" style="margin-top: 3%">
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Role</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <th:block th:each="user : ${users}">
+            <tr>
+                <td>[[${user.id}]]</td>
+                <td>[[${user.username}]]</td>
+                <td>[[${user.role}]]</td>
+            </tr>
+
+        </th:block>
+        </tbody>
+    </table>
+</div>-->
+</body>
+</html>

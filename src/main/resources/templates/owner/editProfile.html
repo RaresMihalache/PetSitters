@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head th:insert="owner/fragments_owner.html :: headerfiles">
+</head>
+<body>
+<header th:insert="owner/fragments_owner.html :: nav"></header>
+<!-- Page content goes here -->
+<div class="text-center">
+    <h2>View profile</h2>
+</div>
+<div class="card">
+    <div class="card-block" style="padding: 24px;">
+
+        <h4 style="margin-left: 47%;">Pets</h4>
+        <div class="card-body">
+            <form action="#" th:action="@{/owner/updateProfile}" method="post" th:object="${owner}">
+                <!--th:object="${owner}"-->
+                <div class="row">
+                    <div class="col-md-4 offset-5" style="margin-top: 0.5%;">
+                        <label>Balanace:</label>
+                    </div>
+                    <div class="col-md-4" style="margin-left: -26%;">
+                        <input type="text" th:field="${owner.balance}" class="form-control"/> <br/>
+                    </div>
+                </div>
+                <div class="row" id="row1">
+                    <div class="col-md-4 offset-2">
+                        <label>Name:</label>
+                        <div th:with="petSize=${owner.get().getPets().size()}">
+                            <!--<p th:text="${petSize}"></p>-->
+                            <input type="text" class="form-control petName" th:field="${owner.pets[0].name}" id="petName" placeholder="Rex">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label>Animal:</label>
+                        <input type="text" name="animal1" class="form-control" th:field="${owner.pets[0].type}" placeholder="Caine">
+                    </div>
+                    <div class="col-md-4 offset-2">
+                        <label>Breed:</label>
+                        <input type="text" name="breed1" class="form-control" th:field="${owner.pets[0].breed}" placeholder="Labrador">
+                    </div>
+                    <div class="col-md-4">
+                        <label>Age:</label>
+                        <input type="number" name="age1" class="form-control" th:field="${owner.pets[0].age}" placeholder="5">
+                    </div>
+
+                    <div class="col-md-5 offset-2">
+                        <label>Details:</label>
+                    </div>
+                    <div class="col-md-8 offset-2">
+                        <textarea id="details1" name="details1" rows="3" cols="127" th:field="${owner.pets[0].details}" placeholder="Here you can give more details about your pet..."></textarea>
+                    </div>
+                </div>
+
+                <div class="form-actions" style="margin-top: 12px; margin-left: 84%;">
+                    <button type="submit" class="btn btn-success">Update</button>
+                </div>
+            </form>
+        </div>
+
+
+    </div><!-- /.row -->
+</div>
+
+</body>
+</html>
